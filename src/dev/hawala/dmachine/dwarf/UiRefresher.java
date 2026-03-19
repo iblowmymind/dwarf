@@ -210,8 +210,7 @@ public class UiRefresher implements ActionListener, iMesaMachineDataAccessor, Po
 				this.newStatusLine = null;
 			}
 			
-			// if there is a stop message from the mesa engine: show in title bar when the
-			// status line is hidden, otherwise let it alternate with the last status line
+			// if there is a stop message from the mesa engine: show in title bar when the status line is hidden, otherwise let it alternate with the last status line
 			if (this.engineEndedMessage != null) {
 				if (!this.mainWindow.isStatusLineVisible()) {
 					// status bar hidden: append the message to the window title

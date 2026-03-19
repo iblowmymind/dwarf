@@ -92,16 +92,15 @@ public class MainUI {
 
 	// non-macOS: toolbar controls (null on macOS)
 	private JToolBar toolBar;
+	private DisplayPane displayPanel;
+	private JLabel statusLine;
+	private JCheckBox ckReadOnlyFloppy;
 	private JButton btnStart;
 	private JButton btnStop;
 	private JLabel lblSep1;
 	private JButton btnInsertFloppy;
-	private JCheckBox ckReadOnlyFloppy;
 	private JButton btnEjectFloppy;
 	private JLabel lblFloppyFilename;
-
-	private DisplayPane displayPanel;
-	private JLabel statusLine;
 
 	/**
 	 * Create the application.
@@ -257,7 +256,9 @@ public class MainUI {
 	}
 	
 	/**
-	 * @return {@code true} if the status line label is currently visible.
+	 * Check if the status line is currently visible
+	 * 
+	 * @return {@code true} if the status line is currently visible.
 	 */
 	public boolean isStatusLineVisible() {
 		return this.statusLine != null && this.statusLine.isVisible();
@@ -275,9 +276,10 @@ public class MainUI {
 	}
 	
 	/**
-	 * Update the window title, optionally appending an engine-ended message.
+	 * Update the window title, optionally appending an engine message if available.
+	 * Used when the status line is invisible.
 	 * When {@code suffix} is non-null the title becomes
-	 * {@code "<emulator> Mesa Engine - <title> - <suffix>"};
+	 * {@code "<emulator> Mesa Engine - <title> - <message>"};
 	 * when {@code null} it reverts to the base title.
 	 *
 	 * @param suffix the message to append, or {@code null} to clear it.

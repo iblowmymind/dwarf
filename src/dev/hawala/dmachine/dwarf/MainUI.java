@@ -174,7 +174,7 @@ public class MainUI {
 			
 			menuFloppy.addSeparator();
 			
-			this.miFloppyFilename = new JMenuItem("-");
+			this.miFloppyFilename = new JMenuItem("\u2011");  // non-breaking hyphen; avoids macOS treating "-" as a separator
 			this.miFloppyFilename.setEnabled(false);
 			menuFloppy.add(this.miFloppyFilename);
 		} else {
@@ -386,7 +386,7 @@ public class MainUI {
 	public void setFloppyName(String floppyName) {
 		if (Utils.IS_MACOS) {
 			if (floppyName == null || floppyName.length() == 0) {
-				this.miFloppyFilename.setText("-");
+				this.miFloppyFilename.setText("\u2011");  // non-breaking hyphen; avoids macOS treating "-" as a separator
 				this.miInsertFloppy.setEnabled(true);
 				this.ckmiReadOnlyFloppy.setEnabled(true);
 				this.miEjectFloppy.setEnabled(false);

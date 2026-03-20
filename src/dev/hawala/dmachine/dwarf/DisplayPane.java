@@ -245,16 +245,16 @@ public abstract class DisplayPane extends JComponent {
 		// filling the 16px cursor exactly with no overlap and no cutoff (no gap is
 		// possible here; a 1px gap would require 17 rows).
 		// For cursor images ≥ 20 px the full tiles are used; upper content is at py=1..8
-		// and lower starts at lowerDestY=9 so that both tiles share the transparent row
-		// at py=9, giving a 1px visible gap between the two content bands.
+		// and lower starts at lowerDestY=10 so that both tiles' transparent border rows
+		// at py=9 and py=10 give a 2px visible gap between the two content bands.
 		// Digit tile positions (pixels), matching the reference Dawn layout:
 		//   n1 at (0, 0)   n2 at (7, 0)
 		//   n3 at (2, 8)   n4 at (9, 8)   (compact)
-		//   n3 at (2, 9)   n4 at (9, 9)   (non-compact, 1px transparent gap between rows)
+		//   n3 at (2, 10)  n4 at (9, 10)  (non-compact, 2px transparent gap between rows)
 		boolean compact  = imgHeight < 20;
 		int tileRowStart = compact ? 1 : 0;   // first tile row to render (skip top blank)
 		int tileRowEnd   = compact ? 9 : 10;  // exclusive end (skip bottom blank)
-		int lowerDestY   = compact ? 8 : 9;   // where the lower two digits start
+		int lowerDestY   = compact ? 8 : 10;  // where the lower two digits start
 
 		int[] digits = { n1, n2, n3, n4 };
 		int[] destX  = {  0,  7,  2,  9 };

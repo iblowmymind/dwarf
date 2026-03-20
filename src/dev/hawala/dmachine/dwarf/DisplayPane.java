@@ -175,7 +175,8 @@ public abstract class DisplayPane extends JComponent {
 	// content + 1px padding on each side) and 10 pixels tall (8px content + 1px
 	// padding top and bottom).  Rows are stored in visual top-to-bottom order (y=0..9),
 	// each row encoded as 9 bytes (MSB = leftmost pixel).  A '0' bit is an active (black)
-	// pixel; a '1' bit is background (transparent).
+	// pixel; a '1' bit is background (transparent). Taken from the Dawn emulator (mpcode.bmp),
+	// credits to Don Woodward, 2004.
 	private static final byte[] MP_DIGIT_ROWS = {
 		// y=0: top border (all background)
 		(byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFF, (byte)0xFC,
@@ -217,8 +218,8 @@ public abstract class DisplayPane extends JComponent {
 	 * <p>
 	 * The two upper digits are placed side-by-side starting at the top-left of the
 	 * cursor image, and the two lower digits are placed slightly inset below them
-	 * (matching the reference layout used by the original Dawn emulator).  Any part
-	 * of a digit tile that falls outside the cursor image boundary is silently clipped.
+	 * (matching the reference layout used by the 6085).  Any part of a digit tile
+	 * that falls outside the cursor image boundary is silently clipped.
 	 * </p>
 	 *
 	 * @param mp the current MP code (0-9999)
